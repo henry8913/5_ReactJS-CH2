@@ -1,0 +1,7 @@
+export { default as MyNav } from './MyNav';
+export { default as Welcome } from './Welcome';
+export { default as Categories } from './Categories';
+export { default as TheAllBooks } from './TheAllBooks';
+export { default as Testimonials } from './Testimonials';
+export { default as Newsletter } from './Newsletter';
+export { default as MyFooter } from './MyFooter';

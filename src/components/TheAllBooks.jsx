@@ -1,15 +1,16 @@
 
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Form } from 'react-bootstrap';
+import SingleBook from './SingleBook';
 
 function TheAllBooks({ selectedCategory = 'history' }) {
   const [books, setBooks] = useState([]);
   const [allBooks, setAllBooks] = useState({});
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const categories = ['history', 'horror', 'romance', 'fantasy', 'scifi'];
     
-    // Carica tutti i dati delle categorie una sola volta
     const loadAllBooks = async () => {
       const bookData = {};
       await Promise.all(
@@ -30,26 +31,25 @@ function TheAllBooks({ selectedCategory = 'history' }) {
     }
   }, [selectedCategory, allBooks]);
 
+  const filteredBooks = books.filter(book => 
+    book.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <Container className="my-5">
       <h2 className="mb-4">Books in {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}</h2>
+      <Form.Group className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="Search books..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </Form.Group>
       <Row className="g-4">
-        {books.map((book) => (
+        {filteredBooks.map((book) => (
           <Col xs={12} sm={6} md={4} lg={3} key={book.asin}>
-            <Card className="book-card h-100">
-              <Card.Img 
-                variant="top" 
-                src={book.img} 
-                alt={book.title}
-                className="book-image"
-              />
-              <Card.Body className="d-flex flex-column">
-                <Card.Title className="flex-grow-1">{book.title}</Card.Title>
-                <Card.Text className="mt-2">
-                  <strong>Price: </strong>${book.price}
-                </Card.Text>
-              </Card.Body>
-            </Card>
+            <SingleBook book={book} />
           </Col>
         ))}
       </Row>

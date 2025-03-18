@@ -1,4 +1,3 @@
-
 # 📚 EPICBooks
 
 Welcome to **EPICBooks**, my ultimate online bookstore built with React and Vite, where I offer a vast selection of literature across various genres. This platform makes searching, browsing, and exploring books easy and enjoyable for everyone.
@@ -19,14 +18,20 @@ Currently, two official plugins are available:
 ### ✅ Category Navigation
 Browse books by different categories including History, Horror, Romance, Fantasy, and Sci-Fi.
 
-### 🖼️ Book Cards
-Visually appealing book cards displaying essential details and pricing information.
+### 🖼️ Book Cards with Interactive Selection
+- Visually appealing book cards displaying essential details and pricing information
+- Red border highlight when a book is selected
+- Smooth hover effects for better user interaction
 
 ### 📩 Newsletter Integration
 Subscribe to our newsletter for updates on new titles and special offers.
 
 ### 📱 Responsive Design
 Fully optimized for both mobile and desktop platforms.
+
+### 🔍 Search Functionality
+- Real-time search filtering within categories
+- Easy-to-use search bar for finding specific books
 
 ## 🛠️ Technologies Used
 
@@ -54,14 +59,14 @@ Fully optimized for both mobile and desktop platforms.
 - [ ] User authentication system
 - [ ] Shopping cart functionality
 - [ ] Book reviews and ratings
-- [ ] Search functionality
+- [x] Search functionality
 - [ ] Social media integration
 
 ## 🤝 Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## 📝 ESLint Configuration
-If you are developing a production application, we recommend using TypeScript and enabling type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+If you are developing a production application, we recommend using TypeScript and enabling type-aware lint rules.
 
 ## 🚀 Getting Started
 
@@ -94,13 +99,6 @@ npm run dev
 5. Open your browser and visit:
 ```
 http://0.0.0.0:5173
-```
-
-### 📦 Build
-
-To create a production build:
-```bash
-npm run build
 ```
 
 ## 👨‍💻 Author
