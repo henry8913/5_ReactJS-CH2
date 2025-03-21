@@ -5,3 +5,4 @@ export { default as TheAllBooks } from './TheAllBooks';
 export { default as Testimonials } from './Testimonials';
 export { default as Newsletter } from './Newsletter';
 export { default as MyFooter } from './MyFooter';
+export { default as About } from './About';

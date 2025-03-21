@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import SingleBook from './SingleBook';
 
-function TheAllBooks({ selectedCategory = 'history' }) {
+function TheAllBooks({ selectedCategory = 'fantasy' }) {
   const [books, setBooks] = useState([]);
   const [allBooks, setAllBooks] = useState({});
   const [searchQuery, setSearchQuery] = useState('');

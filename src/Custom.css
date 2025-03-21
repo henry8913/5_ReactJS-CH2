@@ -30,11 +30,20 @@
   }
 }
 
-/*
-.book-card {
-  border: 2px solid #28a745;
+.book-card-in-cart {
+  border: 2px solid red;
+} 
+
+.comment-area {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
 }
-*/
+
+.comment-area .card {
+  border-left: 4px solid #007bff;
+} 
 
 
 @media (min-width: 1024px) {
@@ -75,11 +84,12 @@
 }
 
 .modal-book-image {
-  max-height: 250px;
+  max-height: 200px;
   width: auto;
   margin: 0 auto 1rem;
   display: block;
 }
+
 @media (min-width: 768px) {
   .modal-book-image {
     max-height: 500px;

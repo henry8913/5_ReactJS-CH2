@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   MyNav,
@@ -8,13 +7,16 @@ import {
   Testimonials,
   Newsletter,
   MyFooter,
+  About,
 } from "./components";
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState("scifi");
+  const [selectedCategory, setSelectedCategory] = useState("horror");
 
   return (
-    <>
+    <Router>
       {/* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -36,16 +38,23 @@ function App() {
         Click on the Vite and React logos to learn more
       </p> */}
       <MyNav />
-      <Welcome />
-      <Categories
-        onSelectCategory={setSelectedCategory}
-        selectedCategory={selectedCategory}
-      />      
-      <TheAllBooks selectedCategory={selectedCategory} />
-      <Testimonials />
-      <Newsletter />
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/" element={
+          <>
+            <Welcome />
+            <Categories
+              onSelectCategory={setSelectedCategory}
+              selectedCategory={selectedCategory}
+            />      
+            <TheAllBooks selectedCategory={selectedCategory} />
+            <Testimonials />
+            <Newsletter />
+          </>
+        } />
+      </Routes>
       <MyFooter />
-    </>
+    </Router>
   );
 }
 

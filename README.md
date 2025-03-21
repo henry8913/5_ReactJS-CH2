@@ -1,3 +1,4 @@
+
 # 📚 EPICBooks
 
 Welcome to **EPICBooks**, my ultimate online bookstore built with React and Vite, where I offer a vast selection of literature across various genres. This platform makes searching, browsing, and exploring books easy and enjoyable for everyone.
@@ -22,6 +23,19 @@ Browse books by different categories including History, Horror, Romance, Fantasy
 - Visually appealing book cards displaying essential details and pricing information
 - Red border highlight when a book is selected
 - Smooth hover effects for better user interaction
+- Integrated review system with ratings and comments
+
+### 📝 Book Reviews and Ratings
+- User review system with star ratings (1-5 stars)
+- Comment functionality for each book
+- Real-time review updates
+- API integration with Strive School for review management
+
+### 🏢 About Page
+- Company history and mission statement
+- Team member profiles
+- Customer testimonials
+- Responsive design for all devices
 
 ### 📩 Newsletter Integration
 Subscribe to our newsletter for updates on new titles and special offers.
@@ -40,6 +54,8 @@ Fully optimized for both mobile and desktop platforms.
 - **Bootstrap**: Responsive styling and components
 - **Bootstrap Icons**: Icon library
 - **ESLint**: Code quality and consistency
+- **React Router**: Page navigation and routing
+- **Strive School API**: Book reviews and ratings
 
 ## 📂 Project Structure
 
@@ -58,7 +74,7 @@ Fully optimized for both mobile and desktop platforms.
 ## 🔄 Future Updates
 - [ ] User authentication system
 - [ ] Shopping cart functionality
-- [ ] Book reviews and ratings
+- [x] Book reviews and ratings
 - [x] Search functionality
 - [ ] Social media integration
 

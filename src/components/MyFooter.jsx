@@ -1,4 +1,5 @@
 import Container from 'react-bootstrap/Container';
+import { Link } from 'react-router-dom';
 
 function MyFooter() {
   return (
@@ -12,8 +13,8 @@ function MyFooter() {
           <div className="col-md-4">
             <h3 className="h5 mb-3">Quick Links</h3>
             <ul className="list-unstyled">
-              <li><a href="index.html" className="text-white-50">Home</a></li>
-              <li><a href="about.html" className="text-white-50">About</a></li>
+              <li><Link to="/" className="text-white-50">Home</Link></li>
+              <li><Link to="/about" className="text-white-50">About</Link></li>
               <li><a href="about.html" className="text-white-50">Browse</a></li>
             </ul>
           </div>
@@ -38,4 +39,3 @@ function MyFooter() {
 }
 
 export default MyFooter;
-
