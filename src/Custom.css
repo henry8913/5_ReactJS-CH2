@@ -356,6 +356,15 @@
   #books-container .col-6 {
     width: 100% !important;
   }
+  
+  .categories-hidden {
+    display: none !important;
+  }
+
+  .container.my-5.with-search {
+    margin-top: 72px !important;
+    padding-top: 13rem !important;
+  }
 }
 /* Social Icons Styles */
 .social-icons i {

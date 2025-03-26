@@ -45,10 +45,11 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/" element={
           <>
-            <Welcome />
+            {!searchQuery && <Welcome />}
             <Categories
               onSelectCategory={setSelectedCategory}
               selectedCategory={selectedCategory}
+              searchQuery={searchQuery}
             />      
             <TheAllBooks selectedCategory={selectedCategory} searchQuery={searchQuery} />
             <Testimonials />

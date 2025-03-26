@@ -2,7 +2,7 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 
-function Categories({ onSelectCategory, selectedCategory }) {
+function Categories({ onSelectCategory, selectedCategory, searchQuery }) {
   const categories = [
     { name: 'history', icon: 'book-half' },
     { name: 'horror', icon: 'lightning' },
@@ -12,7 +12,7 @@ function Categories({ onSelectCategory, selectedCategory }) {
   ];
 
   return (
-    <section className="bg-light py-5">
+    <section className={`bg-light py-5 ${searchQuery ? 'mt-5 categories-hidden' : ''}`}>
       <Container>
         <h2 className="text-center mb-4">Browse by Category</h2>
         <Row className="g-4 justify-content-center">

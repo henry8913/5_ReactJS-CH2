@@ -34,7 +34,7 @@ function TheAllBooks({ selectedCategory = 'history', searchQuery = '' }) {
   );
 
   return (
-    <Container className="my-5">
+    <Container className={`my-5 ${searchQuery ? 'with-search' : ''}`}>
       <h2 className="mb-4">Books in {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}</h2>
       {/* Search bar moved to MyNav component */}
       <Row className="g-4">
