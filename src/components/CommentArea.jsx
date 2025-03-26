@@ -1,11 +1,13 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Modal } from 'react-bootstrap';
 import CommentsList from './CommentsList';
 import AddComment from './AddComment';
+import { ThemeContext } from '../context/ThemeContext';
 
 const CommentArea = ({ bookId, show, onHide, title, bookImage }) => {
   const [comments, setComments] = useState([]);
+  const { theme } = useContext(ThemeContext);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -41,7 +43,7 @@ const CommentArea = ({ bookId, show, onHide, title, bookImage }) => {
   }, [show, bookId]);
 
   return (
-    <Modal show={show} onHide={onHide} size="lg" centered>
+    <Modal show={show} onHide={onHide} size="lg" centered className={theme === 'dark' ? 'theme-dark' : ''}>
       <Modal.Header closeButton>
         <Modal.Title>Reviews for {title}</Modal.Title>
       </Modal.Header>

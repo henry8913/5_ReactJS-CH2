@@ -1,16 +1,14 @@
-
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import SingleBook from './SingleBook';
 
-function TheAllBooks({ selectedCategory = 'fantasy' }) {
+function TheAllBooks({ selectedCategory = 'history', searchQuery = '' }) {
   const [books, setBooks] = useState([]);
   const [allBooks, setAllBooks] = useState({});
-  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const categories = ['history', 'horror', 'romance', 'fantasy', 'scifi'];
-    
+
     const loadAllBooks = async () => {
       const bookData = {};
       await Promise.all(
@@ -38,14 +36,7 @@ function TheAllBooks({ selectedCategory = 'fantasy' }) {
   return (
     <Container className="my-5">
       <h2 className="mb-4">Books in {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}</h2>
-      <Form.Group className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="Search books..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-      </Form.Group>
+      {/* Search bar moved to MyNav component */}
       <Row className="g-4">
         {filteredBooks.map((book) => (
           <Col xs={12} sm={6} md={4} lg={3} key={book.asin}>

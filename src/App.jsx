@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ThemeProvider } from "./context/ThemeContext";
 import {
   MyNav,
   Welcome,
@@ -14,9 +15,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("horror");
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <Router>
+    <ThemeProvider>
+      <Router>
       {/* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -37,7 +40,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
-      <MyNav />
+      <MyNav searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/" element={
@@ -47,7 +50,7 @@ function App() {
               onSelectCategory={setSelectedCategory}
               selectedCategory={selectedCategory}
             />      
-            <TheAllBooks selectedCategory={selectedCategory} />
+            <TheAllBooks selectedCategory={selectedCategory} searchQuery={searchQuery} />
             <Testimonials />
             <Newsletter />
           </>
@@ -55,6 +58,7 @@ function App() {
       </Routes>
       <MyFooter />
     </Router>
+    </ThemeProvider>
   );
 }
 

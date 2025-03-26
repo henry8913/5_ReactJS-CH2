@@ -1,4 +1,134 @@
-/* Variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #213547;
+  --nav-bg: #ffffff;
+  --card-bg: #ffffff;
+}
+
+.theme-dark {
+  --bg-color: #0a0d14;
+  --text-color: #ffffff;
+  --nav-bg: #111827;
+  --card-bg: #1f2937;
+  --link-color: #60a5fa;
+  --border-color: #374151;
+  --button-bg: #2563eb;
+  --button-hover: #3b82f6;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --accent-color: #60a5fa;
+}
+
+.theme-dark * {
+  color: var(--text-color) !important;
+}
+
+.theme-dark .text-primary,
+.theme-dark .bi.display-4 {
+  color: var(--link-color) !important;
+}
+
+.theme-dark {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--text-color);
+}
+
+.theme-dark .navbar {
+  background: var(--nav-bg) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-dark .book-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-dark .book-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent-color);
+}
+
+.theme-dark .hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("/img/Hero.jpeg");
+  border-bottom: 1px solid var(--border-color);
+}
+
+.theme-dark .btn {
+  background-color: var(--button-bg);
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.theme-dark .btn:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+.theme-dark .form-control {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.theme-dark .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+.theme-dark .navbar {
+  background-color: var(--nav-bg) !important;
+}
+
+.theme-dark .navbar-brand,
+.theme-dark .nav-link,
+.theme-dark .navbar-toggler-icon {
+  color: var(--text-color) !important;
+}
+
+.theme-dark .navbar-toggler {
+  border-color: var(--text-color);
+}
+
+.theme-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.theme-dark .card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.theme-dark .bg-light {
+  background-color: var(--bg-color) !important;
+}
+
+.theme-dark .categories-section h2,
+.theme-dark .categories-section h3 {
+  color: var(--text-color);
+}
+
+.theme-dark .about-section .story-section,
+.theme-dark .about-section .mission-section {
+  color: var(--text-color);
+}
+
+.theme-dark .about-section h1,
+.theme-dark .about-section h2,
+.theme-dark .about-section p {
+  color: var(--text-color);
+}
+
+.theme-dark .hero-section {
+  background: linear-gradient(rgba(26, 31, 46, 0.8), rgba(26, 31, 46, 0.1)), url("../public/img/Hero.jpeg");
+  color: white
+}
+
 /* Logo Styles */
 .logo {
   width: 2rem;
@@ -55,12 +185,12 @@
 /* Book Image Styles */
 .book-image, .cart-book-image, .modal-book-image {
   object-fit: scale-down;
-  background: #f8f8f8;
   display: block;
   margin: 0 auto;
 }
 
 .book-image {
+  background: var(--card-bg);
   width: 100%;
   max-height: 400px;
   padding: 1.5rem;
@@ -99,11 +229,107 @@
 
 /* Book Card Styles */
 .book-card {
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
   height: 100%;
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.theme-dark .book-card {
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.theme-dark .book-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.theme-dark .newsletter-section {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  color: var(--text-color);
+}
+
+.theme-dark .about-section {
+  color: #ffffff;
+  background-color: var(--bg-color);
+}
+
+.theme-dark .about-section *,
+.theme-dark .about-section h1,
+.theme-dark .about-section h2,
+.theme-dark .about-section h3,
+.theme-dark .about-section p,
+.theme-dark .about-section .text-muted,
+.theme-dark .about-section li,
+.theme-dark .about-section span,
+.theme-dark .about-section div {
+  color: #ffffff !important;
+}
+
+.theme-dark .about-section .card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.theme-dark .about-section .card *,
+.theme-dark .about-section .card p,
+.theme-dark .about-section .card h3,
+.theme-dark .about-section .card .text-muted,
+.theme-dark .about-section .card span,
+.theme-dark .about-section .card div {
+  color: #ffffff !important;
+}
+
+.theme-dark .about-section .social-icons a,
+.theme-dark .social-icons i,
+.theme-dark .link-primary,
+.theme-dark .nav-link.active {
+  color: var(--link-color) !important;
+}
+
+.theme-dark .text-warning {
+  color: #ffc107 !important;
+}
+
+.theme-dark .story-section,
+.theme-dark .mission-section {
+  color: #ffffff !important;
+}
+
+.theme-dark .story-section p,
+.theme-dark .mission-section p {
+  color: #ffffff !important;
+}
+
+.theme-dark .team-member-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+.theme-dark .team-member-card h3,
+.theme-dark .team-member-card p {
+  color: var(--text-color);
+}
+
+.theme-dark .form-control {
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.theme-dark .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.theme-dark .form-control:focus {
+  background-color: var(--bg-color);
+  border-color: var(--link-color);
+  color: var(--text-color);
 }
 .book-card:hover {
   transform: translateY(-5px);
@@ -111,7 +337,7 @@
 .book-card .card-img-top {
   max-height: 400px;
   padding: 1.5rem;
-  background: #f8f8f8;
+  background: var(--card-bg);
 }
 
 /* Hover Effect for Larger Screens */
@@ -143,4 +369,100 @@
 /* Countdown Modal Styles */
 #countdown-modal {
   margin-top: 15vh;
+}
+
+/* Modal Styles - Light Theme */
+.modal-content {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  color: #212529;
+}
+
+.modal-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+  background-color: #ffffff;
+  border-top: 1px solid #dee2e6;
+}
+
+.modal-title {
+  color: #212529;
+}
+
+.modal-body {
+  background-color: #ffffff;
+  color: #212529;
+}
+
+.form-control,
+.form-select {
+  background-color: #ffffff;
+  border-color: #ced4da;
+  color: #212529;
+}
+
+.comment-area {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+/* Dark Theme Overrides */
+.theme-dark .modal-content {
+  background-color: rgba(31, 41, 55);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.theme-dark .modal-header {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-dark .modal-footer {
+  background-color: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-dark .modal-title {
+  color: var(--text-color);
+}
+
+.theme-dark .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.theme-dark .modal-body {
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.theme-dark .form-control,
+.theme-dark.modal .form-control,
+.theme-dark .form-select,
+.theme-dark.modal .form-select {
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.theme-dark .card,
+.theme-dark.modal .card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.theme-dark .text-muted,
+.theme-dark.modal .text-muted {
+  color: #9ca3af !important;
+}
+
+.theme-dark .comment-area,
+.theme-dark.modal .comment-area {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
 }
