@@ -128,6 +128,13 @@
   background: linear-gradient(rgba(26, 31, 46, 0.8), rgba(26, 31, 46, 0.1)), url("../public/img/Hero.jpeg");
   color: white;
   background-size: cover;
+  background-position: center;
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  margin-top: 72px;
+  padding: 2rem 0;
+  margin-bottom: 0 !important;
 }
 
 /* Logo Styles */
