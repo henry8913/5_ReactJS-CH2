@@ -126,7 +126,8 @@
 
 .theme-dark .hero-section {
   background: linear-gradient(rgba(26, 31, 46, 0.8), rgba(26, 31, 46, 0.1)), url("../public/img/Hero.jpeg");
-  color: white
+  color: white;
+  background-size: cover;
 }
 
 /* Logo Styles */
