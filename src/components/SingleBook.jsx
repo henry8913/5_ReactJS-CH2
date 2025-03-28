@@ -1,14 +1,12 @@
 
-import { useState } from 'react';
-import { Card, Button } from 'react-bootstrap';
-import CommentArea from './CommentArea';
+import { Card } from 'react-bootstrap';
 
-function SingleBook({ book }) {
-  const [selected, setSelected] = useState(false);
-
+const SingleBook = ({ book, selected, onClick }) => {
   return (
     <Card 
-      className={`book-card h-100 ${selected ? 'book-card-in-cart' : ''}`}
+      className={`book-card h-100 ${selected ? 'border-danger' : ''}`}
+      onClick={onClick}
+      style={{ cursor: 'pointer' }}
     >
       <Card.Img 
         variant="top" 
@@ -18,22 +16,12 @@ function SingleBook({ book }) {
       />
       <Card.Body className="d-flex flex-column">
         <Card.Title className="flex-grow-1">{book.title}</Card.Title>
-        <Button variant="primary" onClick={(e) => {
-          e.stopPropagation();
-          setSelected(!selected);
-        }}>
-          Show Reviews
-        </Button>
+        <Card.Text className="mt-2">
+          <strong>Price: </strong>${book.price}
+        </Card.Text>
       </Card.Body>
-      <CommentArea 
-        bookId={book.asin} 
-        show={selected} 
-        onHide={() => setSelected(false)}
-        title={book.title}
-        bookImage={book.img}
-      />
     </Card>
   );
-}
+};
 
 export default SingleBook;

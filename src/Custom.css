@@ -18,9 +18,9 @@
   --accent-color: #60a5fa;
 }
 
-.theme-dark * {
+/*.theme-dark * {
   color: var(--text-color) !important;
-}
+}*/
 
 .theme-dark .text-primary,
 .theme-dark .bi.display-4 {
@@ -173,10 +173,19 @@
 } 
 
 .comment-area {
-  background: #f8f9fa;
-  padding: 1rem;
+  background: var(--card-bg);
+  padding: 1.5rem;
   border-radius: 0.5rem;
   margin-top: 1rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+@media (min-width: 768px) {
+  .position-sticky {
+    position: sticky;
+    top: 100px;
+  }
 }
 
 .comment-area .card {
@@ -358,20 +367,26 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
 }
+/* Ensure proper spacing between books */
+.row > [class*='col-'] {
+  margin-bottom: 1.5rem;
+  padding: 0 0.75rem;
+}
+
 /* Ensure one book per row */
 @media (max-width: 1024px) {
   .row.g-4 .col-6,
   #books-container .col-6 {
     width: 100% !important;
   }
-  
+
   .categories-hidden {
     display: none !important;
   }
 
   .container.my-5.with-search {
     margin-top: 72px !important;
-    padding-top: 13rem !important;
+    padding-top: 3rem !important;
   }
 }
 /* Social Icons Styles */
@@ -478,8 +493,78 @@
   color: #9ca3af !important;
 }
 
-.theme-dark .comment-area,
-.theme-dark.modal .comment-area {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
+.theme-dark .comment-area {
+  background: var(--card-bg);
+  color: #ffffff;
+}
+
+.theme-dark .comment-area .card {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.theme-dark .comment-area .card * {
+  color: var(--text-color);
+}
+
+/* Ensure navbar has its own space */
+body {
+  padding-top: 72px;
+}
+
+.navbar {
+  height: 72px;
+  z-index: 1030;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: var(--nav-bg);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .theme-dark .navbar-collapse {
+    background-color: var(--nav-bg);
+    border: 1px solid var(--border-color);
+  }
+}
+
+/* Adjust other sections to respect navbar space */
+.hero-section {
+  margin-top: 0 !important;
+}
+
+.categories-section {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .row > [class*='col-'] {
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-section {
+    min-height: 40vh;
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+  .logo {
+    width: 1.75rem;
+    height: 2.5rem;
+  }
 }

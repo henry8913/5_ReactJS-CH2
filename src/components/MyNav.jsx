@@ -10,7 +10,7 @@ import { ThemeContext } from '../context/ThemeContext';
 function MyNav({ searchQuery, setSearchQuery }) {
   const { theme, toggleTheme } = useContext(ThemeContext);
   return (
-    <Navbar bg="white" expand="lg" fixed="top" className="shadow-sm">
+    <Navbar bg="white" expand="lg" fixed="top" className="shadow-sm py-2">
       <Container>
         <Link to="/" className="navbar-brand d-flex align-items-center">
           <img src="/img/logo.png" alt="EPICBooks Logo" className="logo me-2" />

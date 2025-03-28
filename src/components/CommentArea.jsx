@@ -1,64 +1,55 @@
 
-import { useEffect, useState, useContext } from 'react';
-import { Modal } from 'react-bootstrap';
-import CommentsList from './CommentsList';
+import { useEffect, useState } from 'react';
+import { ListGroup, Spinner } from 'react-bootstrap';
 import AddComment from './AddComment';
-import { ThemeContext } from '../context/ThemeContext';
 
-const CommentArea = ({ bookId, show, onHide, title, bookImage }) => {
+const CommentArea = ({ bookId }) => {
   const [comments, setComments] = useState([]);
-  const { theme } = useContext(ThemeContext);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const fetchComments = async () => {
+    setIsLoading(true);
+    setError(null);
     try {
-      setIsLoading(true);
-      const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/comments/${bookId}`,
-        {
-          headers: {
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2RkNzU5NDM4MzRiZjAwMTUwMDA5MzAiLCJpYXQiOjE3NDI1NjY4MDUsImV4cCI6MTc0Mzc3NjQwNX0.YIaNEeRhnNBhnhkbkqF6XCnMAVy9Y0-V_j6vj84bOjc'
-          }
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${bookId}`, {
+        headers: {
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2RkNzU5NDM4MzRiZjAwMTUwMDA5MzAiLCJpYXQiOjE3NDI1NjY4MDUsImV4cCI6MTc0Mzc3NjQwNX0.YIaNEeRhnNBhnhkbkqF6XCnMAVy9Y0-V_j6vj84bOjc'
         }
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setComments(data);
-        setError(null);
-      } else {
-        setError('Failed to fetch comments');
-      }
+      });
+      if (!response.ok) throw new Error('Failed to fetch comments');
+      const data = await response.json();
+      setComments(data);
     } catch (error) {
-      setError('Error fetching comments: ' + error.message);
-    } finally {
-      setIsLoading(false);
+      setError('Error loading comments');
+      console.error(error);
     }
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    if (show && bookId) {
+    if (bookId) {
       fetchComments();
     }
-  }, [show, bookId]);
+  }, [bookId]);
+
+  if (!bookId) return <p>Select a book to see comments</p>;
+  if (isLoading) return <Spinner animation="border" />;
+  if (error) return <p className="text-danger">{error}</p>;
 
   return (
-    <Modal show={show} onHide={onHide} size="lg" centered className={theme === 'dark' ? 'theme-dark' : ''}>
-      <Modal.Header closeButton>
-        <Modal.Title>Reviews for {title}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <img src={bookImage} alt={title} className="modal-book-image mb-3" />
-        {isLoading && <div>Loading comments...</div>}
-        {error && <div className="text-danger">{error}</div>}
-        {!isLoading && !error && (
-          <>
-            <CommentsList comments={comments} onCommentUpdated={fetchComments} />
-            <AddComment bookId={bookId} onCommentAdded={fetchComments} />
-          </>
-        )}
-      </Modal.Body>
-    </Modal>
+    <div>
+      <h3>Comments</h3>
+      <ListGroup className="mb-3">
+        {comments.map(comment => (
+          <ListGroup.Item key={comment._id}>
+            <p>{comment.comment}</p>
+            <small>Rating: {comment.rate}/5</small>
+          </ListGroup.Item>
+        ))}
+      </ListGroup>
+      <AddComment bookId={bookId} onCommentAdded={fetchComments} />
+    </div>
   );
 };
 

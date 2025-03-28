@@ -12,12 +12,12 @@ function Categories({ onSelectCategory, selectedCategory, searchQuery }) {
   ];
 
   return (
-    <section className={`bg-light py-5 ${searchQuery ? 'mt-5 categories-hidden' : ''}`}>
+    <section className={`bg-light py-5 ${searchQuery ? 'categories-hidden' : ''}`}>
       <Container>
-        <h2 className="text-center mb-4">Browse by Category</h2>
+        <h2 className="text-center mb-4 mb-5">Browse by Category</h2>
         <Row className="g-4 justify-content-center">
           {categories.map((category, index) => (
-            <Col key={index} xs={6} sm={6} md={4} lg={2}>
+            <Col key={index} xs={6} sm={4} md={4} lg={2} className="px-2">
               <Card 
                 className="h-100 text-center" 
                 style={{ 

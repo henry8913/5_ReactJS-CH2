@@ -1,48 +1,58 @@
+
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, Form } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import SingleBook from './SingleBook';
+import CommentArea from './CommentArea';
 
 function TheAllBooks({ selectedCategory = 'history', searchQuery = '' }) {
   const [books, setBooks] = useState([]);
   const [allBooks, setAllBooks] = useState({});
+  const [selectedBookId, setSelectedBookId] = useState('');
 
   useEffect(() => {
     const categories = ['history', 'horror', 'romance', 'fantasy', 'scifi'];
-
     const loadAllBooks = async () => {
-      const bookData = {};
-      await Promise.all(
-        categories.map(async (category) => {
+      try {
+        const booksByCategory = {};
+        for (const category of categories) {
           const response = await fetch(`/books/${category}.json`);
           const data = await response.json();
-          bookData[category] = data;
-        })
-      );
-      setAllBooks(bookData);
-      setBooks(bookData[selectedCategory] || []);
+          booksByCategory[category] = data;
+        }
+        setAllBooks(booksByCategory);
+        setBooks(booksByCategory[selectedCategory] || []);
+      } catch (error) {
+        console.error('Error loading books:', error);
+      }
     };
-
-    if (Object.keys(allBooks).length === 0) {
-      loadAllBooks();
-    } else {
-      setBooks(allBooks[selectedCategory] || []);
-    }
-  }, [selectedCategory, allBooks]);
+    loadAllBooks();
+  }, [selectedCategory]);
 
   const filteredBooks = books.filter(book => 
     book.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
-    <Container className={`my-5 ${searchQuery ? 'with-search' : ''}`}>
-      <h2 className="mb-4">Books in {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}</h2>
-      {/* Search bar moved to MyNav component */}
-      <Row className="g-4">
-        {filteredBooks.map((book) => (
-          <Col xs={12} sm={6} md={4} lg={3} key={book.asin}>
-            <SingleBook book={book} />
-          </Col>
-        ))}
+    <Container fluid>
+      <Row>
+        <Col md={8}>
+          <Row>
+            {filteredBooks.map((book) => (
+              <Col xs={12} sm={6} md={4} lg={3} key={book.asin}>
+                <SingleBook 
+                  book={book}
+                  selected={selectedBookId === book.asin}
+                  onClick={() => setSelectedBookId(book.asin)}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Col>
+        <Col md={4}>
+          <div className="comment-area">
+            {selectedBookId && <CommentArea bookId={selectedBookId} />}
+          </div>
+        </Col>
       </Row>
     </Container>
   );
