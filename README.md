@@ -139,11 +139,10 @@ git clone https://github.com/henry8913/5_ReactJS-CH2.git
 cd 5_ReactJS-CH2
 ```
 
-3. Install all dependencies using the requirements file:
+3. Install dependencies:
 ```bash
-npm install $(cat requirements.txt | grep "npm install" | cut -d" " -f3-)
+npm install
 ```
-This command will automatically install all the required packages listed in requirements.txt.
 
 4. Start the development server:
 ```bash
@@ -154,8 +153,6 @@ npm run dev
 ```
 http://0.0.0.0:5173
 ```
-
-> Note: A complete list of required packages and their versions can be found in the `requirements.txt` file at the root of the project.
 
 ## 👨‍💻 Author
 [Henry](https://github.com/henry8913)
