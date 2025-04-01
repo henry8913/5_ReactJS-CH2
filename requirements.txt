@@ -1,0 +1,36 @@
+
+# EPICBooks - Installation Requirements
+
+## Prerequisites
+- Node.js (latest LTS version recommended)
+- npm (comes with Node.js)
+
+## Required npm packages
+```bash
+# Core dependencies
+npm install react@19.0.0
+npm install react-dom@19.0.0
+npm install react-bootstrap@2.10.9
+npm install bootstrap@5.3.3
+npm install react-router-dom@7.4.0
+
+# Development dependencies
+npm install --save-dev @vitejs/plugin-react@4.3.4
+npm install --save-dev @types/react@19.0.10
+npm install --save-dev @types/react-dom@19.0.4
+npm install --save-dev eslint@9.21.0
+npm install --save-dev eslint-plugin-react-hooks@5.1.0
+npm install --save-dev eslint-plugin-react-refresh@0.4.19
+npm install --save-dev @eslint/js@9.21.0
+npm install --save-dev globals@15.15.0
+npm install --save-dev vite@6.2.0
+```
+
+## Quick Start
+1. Clone the repository
+2. Run `npm install` to install all dependencies
+3. Run `npm run dev` to start the development server
+4. Open your browser and navigate to http://0.0.0.0:5173
+
+## Note
+All dependencies versions are fixed to ensure compatibility. The project uses Vite as the build tool and development server.

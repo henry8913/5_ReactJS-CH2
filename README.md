@@ -3,6 +3,8 @@
 
 Welcome to **EPICBooks**, my ultimate online bookstore built with React and Vite, where I offer a vast selection of literature across various genres. This platform makes searching, browsing, and exploring books easy and enjoyable for everyone.
 
+> 🌐 Experience EPICBooks in action: [Click here to visit our live demo](https://5-react-js-ch-2.vercel.app/)
+
 ![EPICBooks](./public/img/cover.b.jpg)
 
 ## 🚀 React + Vite Setup
@@ -21,6 +23,9 @@ Currently, two official plugins are available:
 - Smooth theme transitions
 - Theme-aware components and modals
 - Persistent theme selection
+- Enhanced dark theme consistency across all pages
+- Dark background for About and BookDetails sections
+- Improved theme transitions and color schemes
 
 ### ✅ Category Navigation
 Browse books by different categories including History, Horror, Romance, Fantasy, and Sci-Fi.
@@ -29,14 +34,20 @@ Browse books by different categories including History, Horror, Romance, Fantasy
 - Visually appealing book cards displaying essential details and pricing information
 - Red border highlight when a book is selected
 - Smooth hover effects for better user interaction
-- Integrated review system with ratings and comments
+- "See Details" button for each book
+- Detailed book information page with ASIN parameter routing
+- Enhanced book details layout with card design
+- Back to Home navigation button
 
 ### 📝 Book Reviews and Ratings
 - User review system with star ratings (1-5 stars)
 - Comment functionality for each book
 - Real-time review updates
 - Theme-aware modals for comments and reviews
-- API integration with Strive School for review management
+- Enhanced API integration with Strive School
+- Token-based authentication for comments
+- CRUD operations for reviews (GET, POST, PUT, DELETE)
+- Improved error handling for API requests
 
 ### 🏢 About Page
 - Company history and mission statement
@@ -128,10 +139,11 @@ git clone https://github.com/henry8913/5_ReactJS-CH2.git
 cd 5_ReactJS-CH2
 ```
 
-3. Install dependencies:
+3. Install all dependencies using the requirements file:
 ```bash
-npm install
+npm install $(cat requirements.txt | grep "npm install" | cut -d" " -f3-)
 ```
+This command will automatically install all the required packages listed in requirements.txt.
 
 4. Start the development server:
 ```bash
@@ -142,6 +154,8 @@ npm run dev
 ```
 http://0.0.0.0:5173
 ```
+
+> Note: A complete list of required packages and their versions can be found in the `requirements.txt` file at the root of the project.
 
 ## 👨‍💻 Author
 [Henry](https://github.com/henry8913)

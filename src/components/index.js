@@ -6,3 +6,5 @@ export { default as Testimonials } from './Testimonials';
 export { default as Newsletter } from './Newsletter';
 export { default as MyFooter } from './MyFooter';
 export { default as About } from './About';
+export { default as NotFound } from './NotFound';
+export { default as BookDetails } from './BookDetails';

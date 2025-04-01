@@ -147,6 +147,33 @@
 .hero-section {
   background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.9)), url("../public/img/Hero.jpeg");
   background-size: cover;
+
+.book-details-card {
+  transition: transform 0.3s ease;
+}
+
+.book-details-card:hover {
+  transform: translateY(-5px);
+}
+
+.book-details-card .book-image {
+  max-height: 500px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+}
+
+.book-details-card .badge {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.book-info {
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
   background-position: center;
   min-height: 45vh;
   display: flex;

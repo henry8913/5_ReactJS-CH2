@@ -1,5 +1,5 @@
-
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const SingleBook = ({ book, selected, onClick }) => {
   return (
@@ -19,6 +19,9 @@ const SingleBook = ({ book, selected, onClick }) => {
         <Card.Text className="mt-2">
           <strong>Price: </strong>${book.price}
         </Card.Text>
+        <Link to={`/book/${book.asin}`} className="btn btn-primary mt-2">
+            View Details
+          </Link>
       </Card.Body>
     </Card>
   );

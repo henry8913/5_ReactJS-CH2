@@ -9,6 +9,8 @@ import {
   Newsletter,
   MyFooter,
   About,
+  NotFound,
+  BookDetails,
 } from "./components";
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -20,45 +22,27 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-      {/* <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
-      <MyNav searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <Routes>
-        <Route path="/about" element={<About />} />
-        <Route path="/" element={
-          <>
-            {!searchQuery && <Welcome />}
-            <Categories
-              onSelectCategory={setSelectedCategory}
-              selectedCategory={selectedCategory}
-              searchQuery={searchQuery}
-            />      
-            <TheAllBooks selectedCategory={selectedCategory} searchQuery={searchQuery} />
-            <Testimonials />
-            <Newsletter />
-          </>
-        } />
-      </Routes>
-      <MyFooter />
-    </Router>
+        <MyNav searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={
+            <>
+              <Welcome />
+              <Categories
+                onSelectCategory={setSelectedCategory}
+                selectedCategory={selectedCategory}
+                searchQuery={searchQuery}
+              />      
+              <TheAllBooks selectedCategory={selectedCategory} searchQuery={searchQuery} />
+              <Testimonials />
+              <Newsletter />
+            </>
+          } />
+          <Route path="/book/:asin" element={<BookDetails />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <MyFooter />
+      </Router>
     </ThemeProvider>
   );
 }
