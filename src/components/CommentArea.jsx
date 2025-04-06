@@ -21,8 +21,13 @@ const CommentArea = ({ bookId }) => {
       const data = await response.json();
       setComments(data);
     } catch (error) {
-      setError('Error loading comments');
-      console.error(error);
+      const errorMessage = response.status === 401 
+        ? 'Authorization error. Please check your credentials.' 
+        : response.status === 404
+        ? 'Comments not found for this book.'
+        : 'Error loading comments. Please try again later.';
+      setError(errorMessage);
+      console.error('Error fetching comments:', error);
     }
     setIsLoading(false);
   };

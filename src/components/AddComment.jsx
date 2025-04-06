@@ -31,9 +31,13 @@ const AddComment = ({ bookId, onCommentAdded }) => {
         setRate(1);
         onCommentAdded();
       } else {
-        console.error('Failed to add comment');
+        const errorMessage = response.status === 401 
+          ? 'Authorization error. Please check your credentials.'
+          : 'Failed to add comment. Please try again.';
+        setError(errorMessage);
       }
     } catch (error) {
+      setError('Network error. Please check your connection.');
       console.error('Error adding comment:', error);
     } finally {
       setIsSubmitting(false);

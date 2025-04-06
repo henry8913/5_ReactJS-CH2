@@ -49,10 +49,15 @@ const SingleComment = ({ comment, onCommentUpdated }) => {
         setIsEditing(false);
         onCommentUpdated();
       } else {
-        setError('Failed to update comment');
+        const errorMessage = response.status === 401 
+          ? 'Authorization error. Please check your credentials.'
+          : response.status === 404
+          ? 'Comment not found.'
+          : 'Failed to update comment. Please try again.';
+        setError(errorMessage);
       }
     } catch (error) {
-      setError('Error updating comment');
+      setError('Network error. Please check your connection.');
     } finally {
       setIsLoading(false);
     }
