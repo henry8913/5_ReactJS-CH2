@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, Button, Form, Spinner } from 'react-bootstrap';
 
@@ -16,7 +15,7 @@ const SingleComment = ({ comment, onCommentUpdated }) => {
       const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${comment._id}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2RkNzU5NDM4MzRiZjAwMTUwMDA5MzAiLCJpYXQiOjE3NDI1NjY4MDUsImV4cCI6MTc0Mzc3NjQwNX0.YIaNEeRhnNBhnhkbkqF6XCnMAVy9Y0-V_j6vj84bOjc'
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2RkNzU5NDM4MzRiZjAwMTUwMDA5MzAiLCJpYXQiOjE3NDM5Mzc1NTcsImV4cCI6MTc0NTE0NzE1N30.86cNVMAt6MCMIzlalsGu-KjpJL7ydsfnNlJUdfbtE5s'
         }
       });
       if (response.ok) {
@@ -39,7 +38,7 @@ const SingleComment = ({ comment, onCommentUpdated }) => {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2RkNzU5NDM4MzRiZjAwMTUwMDA5MzAiLCJpYXQiOjE3NDI1NjY4MDUsImV4cCI6MTc0Mzc3NjQwNX0.YIaNEeRhnNBhnhkbkqF6XCnMAVy9Y0-V_j6vj84bOjc'
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2RkNzU5NDM4MzRiZjAwMTUwMDA5MzAiLCJpYXQiOjE3NDM5Mzc1NTcsImV4cCI6MTc0NTE0NzE1N30.86cNVMAt6MCMIzlalsGu-KjpJL7ydsfnNlJUdfbtE5s'
         },
         body: JSON.stringify({
           comment: editedComment,

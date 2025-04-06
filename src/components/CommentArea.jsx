@@ -14,7 +14,7 @@ const CommentArea = ({ bookId }) => {
     try {
       const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${bookId}`, {
         headers: {
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2RkNzU5NDM4MzRiZjAwMTUwMDA5MzAiLCJpYXQiOjE3NDI1NjY4MDUsImV4cCI6MTc0Mzc3NjQwNX0.YIaNEeRhnNBhnhkbkqF6XCnMAVy9Y0-V_j6vj84bOjc'
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2RkNzU5NDM4MzRiZjAwMTUwMDA5MzAiLCJpYXQiOjE3NDM5Mzc1NTcsImV4cCI6MTc0NTE0NzE1N30.86cNVMAt6MCMIzlalsGu-KjpJL7ydsfnNlJUdfbtE5s'
         }
       });
       if (!response.ok) throw new Error('Failed to fetch comments');
